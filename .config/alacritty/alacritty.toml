@@ -39,7 +39,7 @@ blur = true
 option_as_alt = "Both"
 
 [font]
-normal.family = "Hack Nerd Font Propo" 
+normal.family = "JetBrainsMono Nerd Font" 
 
 size = 18
 
