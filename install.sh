@@ -54,7 +54,7 @@ echo ""
 
 # Step 2: Install required packages
 print_info "Installing required packages via Homebrew..."
-brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build vim --override-system-vi osx-cpu-temp btop
+brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build vim --override-system-vi osx-cpu-temp btop bat eza
 print_success "Required packages installed!"
 echo ""
 

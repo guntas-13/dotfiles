@@ -25,7 +25,7 @@ Install [Homebrew](https://brew.sh/) (if not already installed):
 Install essential tools via Homebrew:
 
 ```bash
-brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build vim --override-system-vi osx-cpu-temp btop
+brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build vim --override-system-vi osx-cpu-temp btop bat eza
 ```
 
 ### Installation
@@ -153,9 +153,11 @@ Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
 
 ![](./assets/7.png)
 
-![](./assets/1.png)
+![](./assets/8.png)
 
-![](./assets/2.png)
+![](./assets/9.png)
+
+![](./assets/10.png)
 
 ![](./assets/3.png)
 
