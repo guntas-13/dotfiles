@@ -76,7 +76,7 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    Download and install a Nerd Font from the [Nerd Fonts repository](https://github.com/ryanoasis/nerd-fonts) or their [website](https://www.nerdfonts.com/font-downloads) or use Homebrew:
 
    ```bash
-   brew install font-hack-nerd-font
+   brew install --cask font-<FONT NAME>-nerd-font
    ```
 
 6. **Download Alacritty**
