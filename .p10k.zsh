@@ -224,17 +224,17 @@
   # Current directory background color.
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=239
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=236
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=239
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=236
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=239
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=236
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -395,9 +395,9 @@
 
     # Styling for different parts of Git status.
     local       meta='%7F' # white foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
+    local      clean='%236F' # black foreground
+    local   modified='%236F' # black foreground
+    local  untracked='%236F' # black foreground
     local conflicted='%1F' # red foreground
 
     local res
@@ -1014,7 +1014,7 @@
 
   #####################[ anaconda: conda environment (https://conda.io/) ]######################
   # Anaconda environment color.
-  typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=0
+  typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=236
   typeset -g POWERLEVEL9K_ANACONDA_BACKGROUND=4
 
   # Anaconda segment format. The following parameters are available within the expansion.
