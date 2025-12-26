@@ -6,6 +6,7 @@ My personal macOS dotfiles managed with GNU Stow.
 - **[Neovim](https://neovim.io/)**: Complete Neovim configuration ([NvChad](https://nvchad.com/))
 - **[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)**: Font patches for Powerlevel10k and Neovim
 - **[Alacritty](https://alacritty.org/)**: Terminal emulator configuration
+- **[Ghostty](https://ghostty.org/)**: Another terminal emulator
 - **[Tmux](https://github.com/tmux/tmux)**: Terminal multiplexer configuration
 - **[TPM](https://github.com/tmux-plugins/tpm)**: Tmux Plugin Manager
 - **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install)**: Python environment (`conda-env.yml`)
@@ -79,9 +80,14 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    brew install --cask font-<FONT NAME>-nerd-font
    ```
 
-6. **Download Alacritty**
+6. **Download Alacritty and/or Ghostty**
 
-   Visit [Alacritty](https://alacritty.org/) to download and install the latest release for macOS.
+   Visit [Alacritty](https://alacritty.org/) to download and install the latest release for macOS.<br>
+   Visit [Ghostty](https://ghostty.org/) to download and install the latest release for macOS.
+
+   ```bash
+    brew install --cask alacritty ghostty
+   ```
 
 7. **Set up Conda environment**
 
