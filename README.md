@@ -82,8 +82,7 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
 
 6. **Download Alacritty and/or Ghostty**
 
-   Visit [Alacritty](https://alacritty.org/) to download and install the latest release for macOS.<br>
-   Visit [Ghostty](https://ghostty.org/) to download and install the latest release for macOS.
+   Visit [Alacritty](https://alacritty.org/) and/or [Ghostty](https://ghostty.org/) to download and install the latest release for macOS.
 
    ```bash
     brew install --cask alacritty ghostty
