@@ -34,6 +34,8 @@ brew install \
   fzf \
   zoxide \
   tree \
+  bash \
+  gawk \
   coreutils \
   gnu-sed \
   git-lfs \
