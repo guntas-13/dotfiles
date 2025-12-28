@@ -1,13 +1,14 @@
 # dotfiles
 
-My personal macOS dotfiles managed with **[GNU Stow](https://www.gnu.org/software/stow/)**. **[Zsh](https://ohmyz.sh/)** configuration with **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)**, **[Neovim](https://neovim.io/)** configuration with **[NvChad](https://nvchad.com/)**. Terminal emulator configs for **[Alacritty](https://alacritty.org/)** & **[Ghostty](https://ghostty.org/)**. As well as **[Tmux](https://github.com/tmux/tmux)** configuration using **[TPM](https://github.com/tmux-plugins/tpm)** (Tmux Plugin Manager) with **[Gitmux](https://github.com/arl/gitmux)**, and **[Catppuccin Tmux](https://github.com/catppuccin/tmux)** (Catppuccin theme for Tmux).
+My personal macOS dotfiles managed with **[GNU Stow](https://www.gnu.org/software/stow/)**. <br>
+**[Zsh](https://ohmyz.sh/)** configuration with **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)**. **[Neovim](https://neovim.io/)** configuration with **[NvChad](https://nvchad.com/)**. Terminal emulator configs for **[Alacritty](https://alacritty.org/)** & **[Ghostty](https://ghostty.org/)** as well as **[Tmux](https://github.com/tmux/tmux)** configuration managed using **[TPM](https://github.com/tmux-plugins/tpm)** (Tmux Plugin Manager) with **[Gitmux](https://github.com/arl/gitmux)** and **[Catppuccin Tmux](https://github.com/catppuccin/tmux)** (Catppuccin theme for Tmux).
 Finally, a **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install)** setup for Python environment (`conda-env.yml`)
 
 > [!NOTE] 
-> `$HOME` refers to the user's home directory: `/Users/your-username/` or `~`.
-> `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
-> Most configurations are now looked in for in `XDG_CONFIG_HOME` following the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
-> `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
+> * `$HOME` refers to the user's home directory: `/Users/your-username/` or `~`.
+> * Most configurations are now looked in for in `XDG_CONFIG_HOME` following the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+> * `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
+> * `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
 
 ## Quick Start
 
@@ -184,14 +185,14 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    ```
 
 > [!NOTE]
-> `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
-> `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
-> `Ctrl + <hjkl>` to switch between panes like vim.
-> In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
+> * `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
+> * `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
+> * `Ctrl + <hjkl>` to switch between panes like vim.
+> * In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
 
 ---
 
-## Images
+## Preview of the Configuration
 
 ![](./assets/1.png)
 
