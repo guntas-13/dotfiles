@@ -25,7 +25,23 @@ Install [Homebrew](https://brew.sh/):
 Install essential tools via Homebrew:
 
 ```bash
-brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs osx-cpu-temp btop bat eza vim --override-system-vi
+brew install \
+  git \
+  stow \
+  zsh \
+  neovim \
+  tmux \
+  fzf \
+  zoxide \
+  tree \
+  coreutils \
+  gnu-sed \
+  git-lfs \
+  osx-cpu-temp \
+  btop \
+  bat \
+  eza \
+  vim --override-system-vi
 ```
 
 ### Installation
