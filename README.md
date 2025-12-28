@@ -15,7 +15,7 @@ My personal macOS dotfiles managed with GNU Stow.
 
 ### Prerequisites
 
-Install [Homebrew](https://brew.sh/) (if not already installed):
+Install [Homebrew](https://brew.sh/):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -26,7 +26,7 @@ Install [Homebrew](https://brew.sh/) (if not already installed):
 Install essential tools via Homebrew:
 
 ```bash
-brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build vim --override-system-vi osx-cpu-temp btop bat eza
+brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build osx-cpu-temp btop bat eza vim --override-system-vi
 ```
 
 ### Installation
@@ -70,6 +70,8 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    ~/.config/nvim/    -> ~/dotfiles/.config/nvim/
    ~/.config/alacritty/ -> ~/dotfiles/.config/alacritty/
    ~/.config/tmux/    -> ~/dotfiles/.config/tmux/
+   ~/.config/ghostty/  -> ~/dotfiles/.config/ghostty/
+   ~/.p10k.zsh       -> ~/dotfiles/.p10k.zsh
    ```
 
 5. **Download Nerd Fonts**
@@ -98,7 +100,8 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    bash Miniconda3-latest-MacOSX-arm64.sh
    ```
 
-   **Remove the following block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
+   > [!IMPORTANT]
+   > **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
 
    <details>
    <summary> Remove this block! </summary>
@@ -117,16 +120,15 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
          fi
       fi
       unset __conda_setup
-
    # <<< conda initialize <<<
-
-   ````
+   ```
    </details>
+
    Initialize conda (if not done during installation):
 
    ```bash
    conda init zsh
-   ````
+   ```
 
    Restart your terminal, then load the conda environment:
 
@@ -175,9 +177,6 @@ vi # alias to nvim
 vim # alias to nvim
 ```
 
-`prefix` is overwritten to `Ctrl + Space` in this configuration. <br>
-Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
-
 ## Images
 
 ![](./assets/7.png)
@@ -208,6 +207,7 @@ Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
 - [Oh My Zsh](https://ohmyz.sh/) - Zsh configuration framework
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - Zsh theme
 - [Alacritty](https://alacritty.org/) - GPU-accelerated terminal emulator
+- [Ghostty](https://ghostty.org/) - Another terminal emulator
 - [Zsh Plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins) - Useful Zsh plugins for enhanced functionality
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) - Font patches for Powerlevel10k and Neovim
 
