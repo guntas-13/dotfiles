@@ -100,30 +100,6 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    bash Miniconda3-latest-MacOSX-arm64.sh
    ```
 
-   > [!IMPORTANT]
-   > **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
-
-   <details>
-   <summary> Remove this block! </summary>
-    
-    ```bash
-      # >>> conda initialize >>>
-      # !! Contents within this block are managed by 'conda init' !!
-      __conda_setup="$('/Users/guntas13/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-      if [ $? -eq 0 ]; then
-         eval "$__conda_setup"
-      else
-         if [ -f "/Users/guntas13/micromamba/etc/profile.d/conda.sh" ]; then
-            . "/Users/guntas13/micromamba/etc/profile.d/conda.sh"
-         else
-            export PATH="/Users/guntas13/micromamba/bin:$PATH"
-         fi
-      fi
-      unset __conda_setup
-   # <<< conda initialize <<<
-   ```
-   </details>
-
    Initialize conda (if not done during installation):
 
    ```bash
@@ -144,6 +120,31 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    conda env export --no-builds > $HOME/dotfiles/conda-env.yml
    ```
 
+> [!IMPORTANT]
+> **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
+> <details>
+> <summary> <b>Remove this block!</b> </summary>
+> 
+> ```bash
+>   # >>> conda initialize >>>
+>   # !! Contents within this block are managed by 'conda init' !!
+>   __conda_setup="$('/Users/guntas13/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+>   if [ $? -eq 0 ]; then
+>      eval "$__conda_setup"
+>   else
+>      if [ -f "/Users/guntas13/micromamba/etc/profile.d/conda.sh" ]; then
+>         . "/Users/guntas13/micromamba/etc/profile.d/conda.sh"
+>      else
+>         export PATH="/Users/guntas13/micromamba/bin:$PATH"
+>      fi
+>   fi
+>   unset __conda_setup
+> # <<< conda initialize <<<
+> ```
+</details>
+
+---
+
 8. **Install Tmux Plugin Manager (TPM)**
 
    Follow instructions from the [TPM repository](https://github.com/tmux-plugins/tpm):
@@ -162,6 +163,7 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
 
 `prefix` is overwritten to `Ctrl + Space` in this configuration. <br>
 Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
+
 
 ## Usage
 
