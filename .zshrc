@@ -119,19 +119,20 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# source $(brew --prefix chruby)/share/chruby/chruby.sh
+# source $(brew --prefix chruby)/share/chruby/auto.sh
 # chruby ruby-3.2.2
 
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
 # export PATH=$JAVA_HOME/bin:$PATH
-# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# export PATH="$(brew --prefix ruby)/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix gawk)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix llvm)/bin:$(brew --prefix lld)/bin:$PATH"
 
 function conda_deactivate_all() {
