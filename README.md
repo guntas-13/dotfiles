@@ -1,15 +1,13 @@
 # dotfiles
 
-My personal macOS dotfiles managed with GNU Stow.
+My personal macOS dotfiles managed with **[GNU Stow](https://www.gnu.org/software/stow/)**. **[Zsh](https://ohmyz.sh/)** configuration with **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)**, **[Neovim](https://neovim.io/)** configuration with **[NvChad](https://nvchad.com/)**. Terminal emulator configs for **[Alacritty](https://alacritty.org/)** & **[Ghostty](https://ghostty.org/)**. As well as **[Tmux](https://github.com/tmux/tmux)** configuration using **[TPM](https://github.com/tmux-plugins/tpm)** (Tmux Plugin Manager) with **[Gitmux](https://github.com/arl/gitmux)**, and **[Catppuccin Tmux](https://github.com/catppuccin/tmux)** (Catppuccin theme for Tmux).
+Finally, a **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install)** setup for Python environment (`conda-env.yml`)
 
-- **[Zsh](https://ohmyz.sh/)**: Shell configuration with [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme and useful plugins
-- **[Neovim](https://neovim.io/)**: Complete Neovim configuration ([NvChad](https://nvchad.com/))
-- **[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)**: Font patches for Powerlevel10k and Neovim
-- **[Alacritty](https://alacritty.org/)**: Terminal emulator configuration
-- **[Ghostty](https://ghostty.org/)**: Another terminal emulator
-- **[Tmux](https://github.com/tmux/tmux)**: Terminal multiplexer configuration
-- **[TPM](https://github.com/tmux-plugins/tpm)**: Tmux Plugin Manager
-- **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install)**: Python environment (`conda-env.yml`)
+> [!NOTE] 
+> `$HOME` refers to the user's home directory: `/Users/your-username/` or `~`.
+> `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
+> Most configurations are now looked in for in `XDG_CONFIG_HOME` following the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+> `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
 
 ## Quick Start
 
@@ -26,7 +24,7 @@ Install [Homebrew](https://brew.sh/):
 Install essential tools via Homebrew:
 
 ```bash
-brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs ruby-build osx-cpu-temp btop bat eza vim --override-system-vi
+brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs osx-cpu-temp btop bat eza vim --override-system-vi
 ```
 
 ### Installation
@@ -67,11 +65,11 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
 
    ```
    ~/.zshrc           -> ~/dotfiles/.zshrc
+   ~/.p10k.zsh       -> ~/dotfiles/.p10k.zsh
    ~/.config/nvim/    -> ~/dotfiles/.config/nvim/
    ~/.config/alacritty/ -> ~/dotfiles/.config/alacritty/
    ~/.config/tmux/    -> ~/dotfiles/.config/tmux/
    ~/.config/ghostty/  -> ~/dotfiles/.config/ghostty/
-   ~/.p10k.zsh       -> ~/dotfiles/.p10k.zsh
    ```
 
 5. **Download Nerd Fonts**
@@ -122,9 +120,10 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
 
 > [!IMPORTANT]
 > **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
+>
 > <details>
 > <summary> <b>Remove this block!</b> </summary>
-> 
+>
 > ```bash
 >   # >>> conda initialize >>>
 >   # !! Contents within this block are managed by 'conda init' !!
@@ -141,6 +140,7 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
 >   unset __conda_setup
 > # <<< conda initialize <<<
 > ```
+
 </details>
 
 ---
@@ -153,41 +153,49 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
    ```
 
-9. **Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k)**
+9. **Install Gitmux**
+   Follow instructions from the [Gitmux repository](https://github.com/arl/gitmux).
+
+   ```bash
+   brew install gitmux
+   ```
+
+   Save the default configuration to a new file:
+
+   ```bash
+   gitmux -printcfg > $HOME/.gitmux.conf
+   ```
+
+10. **Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k)**
 
    ```bash
    p10k configure
    ```
 
-10. **Tmux Install Packages**
+11. **Tmux Install Packages**
 
-`prefix` is overwritten to `Ctrl + Space` in this configuration. <br>
-Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
+   ```bash
+   # Start a new Tmux session
+   tmux
+   ```
 
+   ```bash
+   tmux source ~/.config/tmux/tmux.conf
+   ```
 
-## Usage
+> [!NOTE]
+> `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
+> `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
+> `Ctrl + <hjkl>` to switch between panes like vim.
+> In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
 
-```bash
-# Start a new Tmux session
-tmux
-```
-
-```bash
-# Start NeoChad
-nvim
-vi # alias to nvim
-vim # alias to nvim
-```
+---
 
 ## Images
 
-![](./assets/7.png)
+![](./assets/1.png)
 
-![](./assets/8.png)
-
-![](./assets/9.png)
-
-![](./assets/10.png)
+![](./assets/2.png)
 
 ![](./assets/3.png)
 
@@ -196,6 +204,12 @@ vim # alias to nvim
 ![](./assets/5.png)
 
 ![](./assets/6.png)
+
+![](./assets/7.png)
+
+![](./assets/8.png)
+
+![](./assets/9.png)
 
 ## Resources
 
@@ -219,9 +233,10 @@ vim # alias to nvim
 - [NvChad](https://nvchad.com/) - Blazing fast Neovim config
 - [Tmux](https://github.com/tmux/tmux) - Terminal multiplexer
 - [TPM](https://github.com/tmux-plugins/tpm) - Tmux Plugin Manager
+- [Catppuccin Theme](https://github.com/catppuccin/tmux) - A soothing pastel theme for Tmux
+- [Gitmux](https://github.com/arl/gitmux) - Git repository status in Tmux status bar
 - [TMux Cheat Sheet](https://tmuxcheatsheet.com/) - Handy reference for Tmux commands
 - [Vim Cheat Sheet](https://vim.rtorr.com/) - Handy reference for Vim commands
-- [Catppuccin Theme](https://github.com/catppuccin/tmux) - A soothing pastel theme for Tmux
 
 Thanks to the YouTube Channels: **[Dreams of Anatomy](https://www.youtube.com/@dreamsofautonomy)** and **[Dreams of Code](https://www.youtube.com/@dreamsofcode)**. Check out these vidoes:
 
