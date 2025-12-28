@@ -151,7 +151,7 @@ brew install git stow zsh neovim tmux fzf zoxide tree coreutils gnu-sed git-lfs 
    Follow instructions from the [TPM repository](https://github.com/tmux-plugins/tpm):
 
    ```bash
-   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
    ```
 
 9. **Install Gitmux**
