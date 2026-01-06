@@ -4,11 +4,12 @@ My personal macOS dotfiles managed with **[GNU Stow](https://www.gnu.org/softwar
 **[Zsh](https://ohmyz.sh/)** configuration with **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)**. **[Neovim](https://neovim.io/)** configuration with **[NvChad](https://nvchad.com/)**. Terminal emulator configs for **[Alacritty](https://alacritty.org/)** & **[Ghostty](https://ghostty.org/)** as well as **[Tmux](https://github.com/tmux/tmux)** configuration managed using **[TPM](https://github.com/tmux-plugins/tpm)** (Tmux Plugin Manager) with **[Gitmux](https://github.com/arl/gitmux)** and **[Catppuccin Tmux](https://github.com/catppuccin/tmux)** (Catppuccin theme for Tmux).
 Finally, a **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install)** setup for Python environment (`conda-env.yml`)
 
-> [!NOTE] 
-> * `$HOME` refers to the user's home directory: `/Users/your-username/` or `~`.
-> * Most configurations are now looked in for in `XDG_CONFIG_HOME` following the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
-> * `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
-> * `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
+> [!NOTE]
+>
+> - `$HOME` refers to the user's home directory: `/Users/your-username/` or `~`.
+> - Most configurations are now looked in for in `XDG_CONFIG_HOME` following the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+> - `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
+> - `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
 
 ## Quick Start
 
@@ -137,8 +138,7 @@ brew install \
    conda env export --no-builds > $HOME/dotfiles/conda-env.yml
    ```
 
-> [!IMPORTANT]
-> **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
+> [!IMPORTANT] > **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
 >
 > <details>
 > <summary> <b>Remove this block!</b> </summary>
@@ -187,28 +187,143 @@ brew install \
 
 10. **Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k)**
 
-   ```bash
-   p10k configure
-   ```
+```bash
+p10k configure
+```
 
 11. **Tmux Install Packages**
 
-   ```bash
-   # Start a new Tmux session
-   tmux
-   ```
+```bash
+# Start a new Tmux session
+tmux
+```
 
-   ```bash
-   tmux source ~/.config/tmux/tmux.conf
-   ```
+```bash
+tmux source ~/.config/tmux/tmux.conf
+```
 
 > [!NOTE]
-> * `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
-> * `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
-> * `Ctrl + <hjkl>` to switch between panes like vim.
-> * In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
+>
+> - `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
+> - `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
+> - `Ctrl + <hjkl>` to switch between panes like vim.
+> - In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
 
 ---
+
+### Database Tools (Optional)
+
+Install and configure database servers if needed:
+
+**PostgreSQL**:
+
+```bash
+brew install postgresql@16
+# Start PostgreSQL service
+brew services start postgresql@16
+```
+
+Install [PgAdmin](https://www.pgadmin.org/) as a GUI tool for managing PostgreSQL databases.
+
+#### Change Data Directory
+
+```bash
+psql postgres
+```
+
+> postgres=# SHOW config_file;
+> postgres=# SHOW data_directory;
+
+```bash
+vim opt/homebrew/var/postgresql@16/postgresql.conf
+```
+
+```bash
+cp -R /opt/homebrew/var/postgresql@16 <new_data_directory_path>
+```
+
+```bash
+sudo chown $(whoami):admin <new_data_directory_path>
+chmod 700 <new_data_directory_path>
+```
+
+#### PostgreSQL Commands
+
+To create a new database:
+
+```bash
+createdb -h localhost -p 5432 -U guntas13 <db_name>
+```
+
+To restore a database from a dump file:
+
+```bash
+pg_restore -v -h localhost -p 5432 -U guntas13 -d <db_name> <.dump file>
+```
+
+To create a dump of a database:
+
+```bash
+pg_dump -v -h localhost -p 5432 -U guntas13 -Fc -f <.dump flc> <db_name>
+```
+
+**MongoDB**:
+
+```bash
+brew tap mongodb/brew
+brew install mongodb-community@8.0
+# Start MongoDB service
+brew services start mongodb-community@8.0
+```
+
+Install [NoSQLBooster](https://nosqlbooster.com/) as a GUI tool for managing MongoDB databases.
+
+#### Change Data Directory
+
+```bash
+vim /opt/homebrew/etc/mongod.conf
+```
+
+```
+─────┬─────────────────────────────────────────────────────
+     │ File: mongod.conf
+─────┼─────────────────────────────────────────────────────
+   1 │ systemLog:
+   2 │   destination: file
+   3 │   path: /opt/homebrew/var/log/mongodb/mongo.log
+   4 │   logAppend: true
+   5 │ storage:
+   6 │   dbPath: "<new_data_directory_path>"
+   7 │ net:
+   8 │   bindIp: 127.0.0.1, ::1
+   9 │   ipv6: true
+─────┴─────────────────────────────────────────────────────
+```
+
+```bash
+sudo chown $(whoami):admin <new_data_directory_path>
+chmod 755 <new_data_directory_path>
+```
+
+#### MongoDB Commands
+
+To restore a database from a dump file:
+
+```bash
+mongorestore --uri="mongodb://localhost:27017" --drop <dump_directory>
+```
+
+or for a specific database:
+
+```bash
+mongorestore --db <db_name> --uri="mongodb://localhost:27017" --drop <dump_directory>/<db_name>
+```
+
+To create a dump of a database:
+
+```bash
+mongodump --uri="mongodb://localhost:27017" --out <dump_directory>
+```
 
 ## Preview of the Configuration
 
