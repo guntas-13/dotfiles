@@ -138,7 +138,8 @@ brew install \
    conda env export --no-builds > $HOME/dotfiles/conda-env.yml
    ```
 
-> [!IMPORTANT] > **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
+> [!IMPORTANT]
+> **Remove the below block from `.zshrc` file**. _This block was automatically added during past conda initialization and a new block will be appended during the above installation steps._
 >
 > <details>
 > <summary> <b>Remove this block!</b> </summary>
@@ -211,11 +212,11 @@ tmux source ~/.config/tmux/tmux.conf
 
 ---
 
-### Database Tools (Optional)
+## Database Tools (Optional)
 
 Install and configure database servers if needed:
 
-**PostgreSQL**:
+### PostgreSQL
 
 ```bash
 brew install postgresql@16
@@ -231,7 +232,7 @@ Install [PgAdmin](https://www.pgadmin.org/) as a GUI tool for managing PostgreSQ
 psql postgres
 ```
 
-> postgres=# SHOW config_file;
+> postgres=# SHOW config_file; <br>
 > postgres=# SHOW data_directory;
 
 ```bash
@@ -267,7 +268,7 @@ To create a dump of a database:
 pg_dump -v -h localhost -p 5432 -U guntas13 -Fc -f <.dump flc> <db_name>
 ```
 
-**MongoDB**:
+### MongoDB
 
 ```bash
 brew tap mongodb/brew
@@ -293,7 +294,7 @@ vim /opt/homebrew/etc/mongod.conf
    3 │   path: /opt/homebrew/var/log/mongodb/mongo.log
    4 │   logAppend: true
    5 │ storage:
-   6 │   dbPath: "<new_data_directory_path>"
+   6 │   dbPath: <new_data_directory_path>
    7 │ net:
    8 │   bindIp: 127.0.0.1, ::1
    9 │   ipv6: true
