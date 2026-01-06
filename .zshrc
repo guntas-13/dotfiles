@@ -73,14 +73,16 @@ export LSCOLORS=GxFxCxDxBxegedabagaced #(for dark backgrounds)
 export LSCOLORS=ExFxBxDxCxegedabagacad #(for light background)
 
 # Aliases
-# alias ls='ls -l | sort -d -k 1.1,1.1r -k 9 | awk '\''{print $9}'\'''
-# alias ls='ls --color' 
 alias vim='nvim'
 alias vi='nvim'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias cat='bat'
 alias cc='gcc-15'
 alias pp='g++-15'
+alias tree='tree -I ".git" -a --dirsfirst'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
@@ -143,3 +145,8 @@ function conda_deactivate_all() {
     done
 }
 [[ -z $TMUX ]] || conda_deactivate_all; conda activate sttPy10 
+
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
