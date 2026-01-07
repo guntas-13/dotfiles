@@ -41,7 +41,7 @@ option_as_alt = "Both"
 [font]
 normal.family = "JetBrainsMono Nerd Font" 
 
-size = 18
+size = 16
 
 [window.dimensions]
 columns = 120
