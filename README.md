@@ -129,7 +129,7 @@ brew install \
    ```bash
    cd $HOME/dotfiles
    conda env create -f conda-env.yml
-   conda activate sttPy10
+   conda activate <environment_name>
    ```
 
    To update the `conda-env.yml` file after installing new packages, run:
@@ -145,19 +145,19 @@ brew install \
 > <summary> <b>Remove this block!</b> </summary>
 >
 > ```bash
->   # >>> conda initialize >>>
->   # !! Contents within this block are managed by 'conda init' !!
->   __conda_setup="$('/Users/guntas13/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
->   if [ $? -eq 0 ]; then
->      eval "$__conda_setup"
->   else
->      if [ -f "/Users/guntas13/micromamba/etc/profile.d/conda.sh" ]; then
->         . "/Users/guntas13/micromamba/etc/profile.d/conda.sh"
->      else
->         export PATH="/Users/guntas13/micromamba/bin:$PATH"
->      fi
->   fi
->   unset __conda_setup
+> # >>> conda initialize >>>
+> # !! Contents within this block are managed by 'conda init' !!
+> __conda_setup="$('/Users/guntas13/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+> if [ $? -eq 0 ]; then
+>     eval "$__conda_setup"
+> else
+>     if [ -f "/Users/guntas13/miniconda3/etc/profile.d/conda.sh" ]; then
+>         . "/Users/guntas13/miniconda3/etc/profile.d/conda.sh"
+>     else
+>         export PATH="/Users/guntas13/miniconda3/bin:$PATH"
+>     fi
+> fi
+> unset __conda_setup
 > # <<< conda initialize <<<
 > ```
 

@@ -108,21 +108,6 @@ _fzf_comprun() {
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/guntas13/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/guntas13/micromamba/etc/profile.d/conda.sh" ]; then
-        . "/Users/guntas13/micromamba/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/guntas13/micromamba/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # source $(brew --prefix chruby)/share/chruby/chruby.sh
 # source $(brew --prefix chruby)/share/chruby/auto.sh
 # chruby ruby-3.2.2
@@ -132,21 +117,36 @@ unset __conda_setup
 # export PATH="$(brew --prefix ruby)/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
-
 export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix gawk)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix llvm)/bin:$(brew --prefix lld)/bin:$PATH"
-
-function conda_deactivate_all() {
-    while [ -n "$CONDA_PREFIX" ]; do
-        conda deactivate;
-    done
-}
-[[ -z $TMUX ]] || conda_deactivate_all; conda activate sttPy10 
-
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/guntas13/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/guntas13/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/guntas13/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/guntas13/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+function conda_deactivate_all() {
+   while [ -n "$CONDA_PREFIX" ]; do
+       conda deactivate;
+   done
+}
+[[ -z $TMUX ]] || conda_deactivate_all; conda activate skan
