@@ -126,6 +126,7 @@ export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix gawk)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix llvm)/bin:$(brew --prefix lld)/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
@@ -147,9 +148,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-function conda_deactivate_all() {
-   while [ -n "$CONDA_PREFIX" ]; do
-       conda deactivate;
-   done
-}
-[[ -z $TMUX ]] || conda_deactivate_all; conda activate skan
+#function conda_deactivate_all() {
+#   while [ -n "$CONDA_PREFIX" ]; do
+#       conda deactivate;
+#   done
+#}
+#[[ -z $TMUX ]] || conda_deactivate_all; conda activate skan
