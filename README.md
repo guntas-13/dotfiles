@@ -44,6 +44,7 @@ brew install \
   btop \
   bat \
   eza \
+  protobuf \
   vim --override-system-vi
 ```
 
