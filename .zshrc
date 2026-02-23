@@ -148,9 +148,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-#function conda_deactivate_all() {
-#   while [ -n "$CONDA_PREFIX" ]; do
-#       conda deactivate;
-#   done
-#}
-#[[ -z $TMUX ]] || conda_deactivate_all; conda activate skan
+function conda_deactivate_all() {
+   while [ -n "$CONDA_PREFIX" ]; do
+       conda deactivate;
+   done
+}
+[[ -z $TMUX ]] || conda_deactivate_all; conda activate base
