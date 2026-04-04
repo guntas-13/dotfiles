@@ -210,6 +210,8 @@ tmux source ~/.config/tmux/tmux.conf
 >
 > - `prefix` is overwritten to `Ctrl + Space` in this configuration. Inside a Tmux session, press `prefix` + `I` (capital i) to install Tmux plugins.
 > - `Ctrl-Space + v` to open a vertical split, `Ctrl-Space + h` to open a horizontal split.
+> - `Alt + s` synchronizes input across all panes in the current window, allowing you to run the same command in multiple panes simultaneously.
+> - `Ctrl-Space + p` does `capture-pane -S -` and prompts for a file name to do `save-buffer <filename>`.
 > - `Ctrl + <hjkl>` to switch between panes like vim.
 > - In NeoChad, `Space` is the leader key. `Space + t h` for theme panel, `Ctrl + n` or `Space + e` to open file explorer.
 
