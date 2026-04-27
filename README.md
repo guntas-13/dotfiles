@@ -46,6 +46,7 @@ brew install \
   btop \
   bat \
   eza \
+  go \
   protobuf \
   vim --override-system-vi
 ```
@@ -329,6 +330,24 @@ To create a dump of a database:
 
 ```bash
 mongodump --uri="mongodb://localhost:27017" --out <dump_directory>
+```
+
+## Go, gRPC & protobuf
+
+Already installed `go` and `protobuf` via Homebrew in the previous steps. Go binaries are installed in `$(go env GOPATH)/bin`, this is already added in the `~/.zshrc` file. Only additional step is to install the gRPC plugin for Go:
+
+```bash
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+```
+
+To verify check:
+
+```bash
+go version
+protoc --version
+protoc-gen-go --version
+protoc-gen-go-grpc --version
 ```
 
 ## Preview of the Configuration
