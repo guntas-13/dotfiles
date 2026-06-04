@@ -13,17 +13,14 @@ Finally, a **[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda
 > - `XDG_CONFIG_HOME` defaults to `$HOME/.config/` in this configuration.
 > - `$(brew prefix <package>)` returns the installation path of a Homebrew package (`/opt/homebrew/opt/<package>` on Mac).
 
-## Quick Start
 
-### Prerequisites
+## Prerequisites
 
 Install [Homebrew](https://brew.sh/):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-
-### Required Packages
 
 Install essential tools via Homebrew:
 
@@ -51,7 +48,7 @@ brew install \
   vim --override-system-vi
 ```
 
-### Installation
+## Installation
 
 1. **Clone the repository**
 
@@ -60,7 +57,21 @@ brew install \
    cd $HOME/dotfiles
    ```
 
-2. **Set Zsh as the default shell**
+2. **Install required `brew` packages**
+
+   Use the `Brewfile` here:
+
+   ```bash
+   brew bundle install ./Brewfile
+   ```
+
+   make regular updates to the `Brewfile` by running:
+
+   ```bash
+   brew bundle dump --file=$HOME/dotfiles/Brewfile
+   ```
+
+3. **Set Zsh as the default shell**
 
    ```bash
    chsh -s $(which zsh)
@@ -68,7 +79,7 @@ brew install \
 
    Restart your terminal for the changes to take effect.
 
-3. **Install Oh My Zsh**
+4. **Install Oh My Zsh**
 
    Install Oh My Zsh using the official installation script:
 
@@ -78,7 +89,7 @@ brew install \
 
    When prompted, allow Oh My Zsh to set up the default configuration. You'll overwrite it in the next step.
 
-4. **Deploy dotfiles with Stow**
+5. **Deploy dotfiles with Stow**
 
    ```bash
    cd $HOME/dotfiles
@@ -88,15 +99,17 @@ brew install \
    After running `stow --adopt .`, the following symlinks will be created:
 
    ```
-   ~/.zshrc           -> ~/dotfiles/.zshrc
-   ~/.p10k.zsh       -> ~/dotfiles/.p10k.zsh
-   ~/.config/nvim/    -> ~/dotfiles/.config/nvim/
+   ~/.zshrc             -> ~/dotfiles/.zshrc
+   ~/.p10k.zsh          -> ~/dotfiles/.p10k.zsh
+   ~/conda-env.yml      -> ~/dotfiles/conda-env.yml
+   ~/Brewfile           -> ~/dotfiles/Brewfile
+   ~/.config/nvim/      -> ~/dotfiles/.config/nvim/
    ~/.config/alacritty/ -> ~/dotfiles/.config/alacritty/
-   ~/.config/tmux/    -> ~/dotfiles/.config/tmux/
-   ~/.config/ghostty/  -> ~/dotfiles/.config/ghostty/
+   ~/.config/tmux/      -> ~/dotfiles/.config/tmux/
+   ~/.config/ghostty/   -> ~/dotfiles/.config/ghostty/
    ```
 
-5. **Download Nerd Fonts**
+6. **Download Nerd Fonts**
 
    Download and install a Nerd Font from the [Nerd Fonts repository](https://github.com/ryanoasis/nerd-fonts) or their [website](https://www.nerdfonts.com/font-downloads) or use Homebrew:
 
@@ -104,7 +117,7 @@ brew install \
    brew install --cask font-<FONT NAME>-nerd-font
    ```
 
-6. **Download Alacritty and/or Ghostty**
+7. **Download Alacritty and/or Ghostty**
 
    Visit [Alacritty](https://alacritty.org/) and/or [Ghostty](https://ghostty.org/) to download and install the latest release for macOS.
 
@@ -112,7 +125,7 @@ brew install \
     brew install --cask alacritty ghostty
    ```
 
-7. **Set up Conda environment**
+8. **Set up Conda environment**
 
    Download & Install from miniconda [website](https://www.anaconda.com/docs/getting-started/miniconda/install) or use the following commands:
 
@@ -169,7 +182,7 @@ brew install \
 
 ---
 
-8. **Install Tmux Plugin Manager (TPM)**
+9. **Install Tmux Plugin Manager (TPM)**
 
    Follow instructions from the [TPM repository](https://github.com/tmux-plugins/tpm):
 
@@ -177,26 +190,26 @@ brew install \
    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
    ```
 
-9. **Install Gitmux**
-   Follow instructions from the [Gitmux repository](https://github.com/arl/gitmux).
+10. **Install Gitmux**
+    Follow instructions from the [Gitmux repository](https://github.com/arl/gitmux).
 
-   ```bash
-   brew install gitmux
-   ```
+```bash
+brew install gitmux
+```
 
-   Save the default configuration to a new file:
+Save the default configuration to a new file:
 
-   ```bash
-   gitmux -printcfg > $HOME/.gitmux.conf
-   ```
+```bash
+gitmux -printcfg > $HOME/.gitmux.conf
+```
 
-10. **Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k)**
+11. **Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k)**
 
 ```bash
 p10k configure
 ```
 
-11. **Tmux Install Packages**
+12. **Tmux Install Packages**
 
 ```bash
 # Start a new Tmux session
