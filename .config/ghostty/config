@@ -7,10 +7,10 @@ window-save-state = never
 window-padding-x = 20
 window-padding-y = 20
 window-padding-balance = true
-window-height = 25
-window-width = 110
-window-position-y = 75
-window-position-x = 66
+window-height = 35
+window-width = 139
+window-position-y = 35
+window-position-x = 22
 
 theme = Catppuccin Mocha
 bold-is-bright = true
@@ -43,7 +43,7 @@ palette = 13=#f2aede
 palette = 14=#6bd7ca
 palette = 15=#bac2de
 
-font-size = 18
+font-size = 17
 font-thicken = true
 
 macos-titlebar-style = hidden
