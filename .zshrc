@@ -127,6 +127,7 @@ export PATH="$(brew --prefix gawk)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix llvm)/bin:$(brew --prefix lld)/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
+export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
